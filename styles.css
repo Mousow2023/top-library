@@ -1,0 +1,111 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.container {
+    background-color: #eceff3;
+    /* background-color: #e5e7eb; */
+    margin: 0 3rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+
+    display: flex;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    grid-area: 1/-1;
+}
+
+.book-container {
+    flex: 3;
+}
+
+.books {
+    display: grid;
+    grid-template-rows: min-content;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 15px;
+    grid-auto-rows: min-content;
+}
+
+.book,
+.add-form {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.add-form {
+    flex: 1;
+}
+
+.book>* {
+    margin-bottom: 0.5rem;
+}
+
+.book .buttons {
+    display: flex;
+    justify-content: end;
+    gap: 15px;
+}
+
+.btn {
+    font-weight: bold;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.status-btn,
+.save-btn {
+    background-color: #007bff;
+}
+
+.delete-btn {
+    background-color: red;
+}
+
+.add-form>* {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+}
+
+.form-group input {
+    font: inherit;
+    padding: 4px 6px;
+    border: 1px solid #eee;
+}
+
+.is-read {
+    display: block;
+}
+
+.is-read label {
+    display: inline;
+}
+
+.save-btn {
+    width: 100%;
+}
