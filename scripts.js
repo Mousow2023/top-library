@@ -1,19 +1,22 @@
 let myLibrary = [];
 
-// Book constructor function
-function Book(title, author, pages) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = false;
-    this.infos = function () {
+// Book class
+class Book {
+
+    constructor(title, author, pages) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = false;
+    }
+
+    get infos() {
         return `${this.title} by ${this.author}, ${this.pages} pages, is ${this.isRead ? "read" : "not read"}`;
     }
-};
 
-// Change the status of a book (wheter it's read or or not)
-Book.prototype.markAsRead = function () {
-    this.isRead ? this.isRead = false : this.isRead = true;
+    markAsRead = function () {
+        this.isRead = !this.isRead;
+    }
 }
 
 // Capture the books div container from the DOM
@@ -52,7 +55,6 @@ submitFormButton.addEventListener("click", function (event) {
     let title = document.getElementById("title").value;
     let author = document.getElementById("author").value;
     let pages = document.getElementById("pages").value;
-    let status = document.getElementById("status").checked;
 
     // Check if all values are provided
     if (title !== "" && author !== "" && pages !== "") {
@@ -60,7 +62,7 @@ submitFormButton.addEventListener("click", function (event) {
         let book = new Book(title, author, pages);
 
         // Set the book status based on the checkbox.status
-        status ? book.isRead = true : book.isRead = false;
+        book.isRead = document.getElementById("status").checked;
 
         // Clear the form values
         document.getElementById("title").value = "";
